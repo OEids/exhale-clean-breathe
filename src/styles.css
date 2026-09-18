@@ -13,6 +13,8 @@
  * The :root and .dark blocks define the actual color values using oklch.
  * All colors MUST use oklch format.
  *
+ * Exhale leans natural: moss green, warm linen, oat, soft clay.
+ *
  * To add a new semantic color:
  * 1. Add the variable to :root (light value) and .dark (dark value)
  * 2. Register it in @theme inline as --color-<name>: var(--<name>)
@@ -59,6 +61,30 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Exhale brand tokens — natural palette */
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-ink: var(--ink);
+  --color-mist: var(--mist);
+  --color-sage: var(--sage);
+  --color-clay: var(--clay);
+  --color-panel: var(--panel);
+  --color-panel-border: var(--panel-border);
+  --font-display: "Sora", ui-sans-serif, sans-serif;
+  --font-body: "Inter", ui-sans-serif, sans-serif;
+  --animate-inhale: inhale 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes inhale {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 :root {
@@ -95,6 +121,26 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* Exhale — moss, oat, linen, soft clay */
+  --brand: oklch(0.52 0.072 154);
+  --brand-soft: oklch(0.52 0.072 154 / 11%);
+  --ink: oklch(0.31 0.022 92);
+  --mist: oklch(0.945 0.014 85);
+  --sage: oklch(0.79 0.055 148);
+  --clay: oklch(0.68 0.085 55);
+
+  /* Frosted bento panel surface */
+  --panel: oklch(0.995 0.006 90 / 55%);
+  --panel-border: oklch(1 0 0 / 70%);
+  --shadow-panel: 0 22px 45px -22px oklch(0.4 0.05 100 / 28%);
+
+  /* Daylight wash behind the whole page */
+  --page-bg:
+    radial-gradient(60% 55% at 12% 8%, oklch(0.79 0.055 148 / 26%), transparent 60%),
+    radial-gradient(50% 45% at 90% 14%, oklch(0.68 0.085 55 / 14%), transparent 55%),
+    radial-gradient(65% 50% at 50% 100%, oklch(0.52 0.072 154 / 14%), transparent 60%),
+    linear-gradient(180deg, oklch(0.975 0.01 92) 0%, oklch(0.935 0.018 88) 100%);
 }
 
 .dark {
@@ -130,6 +176,53 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+
+  --brand: oklch(0.76 0.075 154);
+  --brand-soft: oklch(0.76 0.075 154 / 14%);
+  --ink: oklch(0.95 0.012 90);
+  --mist: oklch(0.3 0.02 110);
+  --sage: oklch(0.72 0.06 148);
+  --clay: oklch(0.74 0.09 55);
+
+  --panel: oklch(0.28 0.022 120 / 55%);
+  --panel-border: oklch(1 0 0 / 12%);
+  --shadow-panel: 0 22px 45px -22px oklch(0.05 0.02 120 / 60%);
+
+  --page-bg:
+    radial-gradient(60% 55% at 12% 8%, oklch(0.76 0.075 154 / 16%), transparent 60%),
+    radial-gradient(50% 45% at 90% 14%, oklch(0.74 0.09 55 / 10%), transparent 55%),
+    radial-gradient(65% 50% at 50% 100%, oklch(0.76 0.075 154 / 12%), transparent 60%),
+    linear-gradient(180deg, oklch(0.18 0.018 130) 0%, oklch(0.13 0.018 130) 100%);
+}
+
+/* Frosted surface every bento block sits on */
+@utility glass {
+  background-color: var(--panel);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(14px);
+}
+
+/* Small uppercase label that heads every panel */
+@utility eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+/* Organic paper grain, so nothing reads as flat plastic */
+@utility grain {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+  }
 }
 
 @layer base {
@@ -139,6 +232,15 @@
 
   body {
     background-color: var(--color-background);
+    background-image: var(--page-bg);
+    background-attachment: fixed;
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--sage);
+    color: var(--ink);
   }
 }
