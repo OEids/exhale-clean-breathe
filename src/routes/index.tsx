@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import cleanKitchen1 from "@/assets/clean-kitchen-1.jpg.asset.json";
-import heroImage from "@/assets/hero-natural.jpg";
+import cleanBedroom from "@/assets/clean-bedroom.jpg.asset.json";
+import cleanDusting from "@/assets/clean-dusting.jpg.asset.json";
+import cleanKitchen from "@/assets/clean-kitchen.jpg.asset.json";
 import { BookingForm } from "@/components/booking-form";
 import { BrandLockup } from "@/components/brand-lockup";
 import { Panel, PanelLabel } from "@/components/panel";
@@ -33,6 +34,21 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+const HERO_PHOTOS = [
+  {
+    src: cleanDusting.url,
+    alt: "A cleaner hand-polishing a sideboard beside fresh flowers and a framed photo",
+  },
+  {
+    src: cleanKitchen.url,
+    alt: "A freshly cleaned kitchen with a bright island, bar stools and tulips",
+  },
+  {
+    src: cleanBedroom.url,
+    alt: "A calm, freshly cleaned bedroom with wooden floors and shuttered windows",
+  },
+];
 
 const WEEK = [
   { label: "Bedrooms · dusted & straightened", done: true },
@@ -131,15 +147,20 @@ function Index() {
                 Weekly & fortnightly plans
               </span>
             </div>
-            <figure className="mt-9 h-56 overflow-hidden rounded-2xl sm:h-64">
-              <img
-                src={heroImage}
-                alt="A calm, uncluttered living room in morning light with linen curtains and an olive tree"
-                width={1024}
-                height={1280}
-                className="h-full w-full object-cover"
-              />
-            </figure>
+            <div className="mt-9 grid grid-cols-3 gap-3">
+              {HERO_PHOTOS.map((photo) => (
+                <figure key={photo.src} className="overflow-hidden rounded-2xl">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={320}
+                    height={230}
+                    className="aspect-[4/3] h-full w-full object-cover"
+                  />
+                </figure>
+              ))}
+            </div>
+            <p className="mt-3 text-xs text-ink/50">Photos from our recent cleans.</p>
           </section>
 
           {/* This week */}
@@ -232,34 +253,6 @@ function Index() {
             </ul>
           </Panel>
 
-          {/* From our cleans */}
-          <Panel className="col-span-12" id="cleans">
-            <div className="flex flex-wrap items-end justify-between gap-2">
-              <PanelLabel>From our cleans</PanelLabel>
-              <span className="text-xs text-ink/50">Real homes, looked after by the team</span>
-            </div>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <figure className="overflow-hidden rounded-2xl">
-                <img
-                  src={cleanKitchen1.url}
-                  alt="A freshly cleaned kitchen with a marble-topped island, pendant lights and garden view"
-                  width={1290}
-                  height={386}
-                  className="aspect-[16/9] h-full w-full object-cover"
-                />
-              </figure>
-              <div className="hidden items-center justify-center rounded-2xl border border-dashed border-panel-border bg-mist/30 p-6 text-center text-xs leading-relaxed text-ink/50 sm:flex">
-                More photos from recent cleans
-                <br />
-                coming soon
-              </div>
-              <div className="hidden items-center justify-center rounded-2xl border border-dashed border-panel-border bg-mist/30 p-6 text-center text-xs leading-relaxed text-ink/50 lg:flex">
-                Your home could be next —
-                <br />
-                book a free meet-and-greet
-              </div>
-            </div>
-          </Panel>
 
           {/* How it works */}
           <Panel className="col-span-12 lg:col-span-5" id="how">
