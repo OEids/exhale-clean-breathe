@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { Panel, PanelLabel } from "@/components/panel";
 import { submitBookingRequest } from "@/lib/bookings";
 
@@ -20,7 +20,7 @@ export function BookingForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     const form = event.currentTarget;
     event.preventDefault();
 

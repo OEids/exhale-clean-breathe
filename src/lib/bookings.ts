@@ -3,9 +3,9 @@ import { supabase } from "@/integrations/supabase/client";
 export type BookingRequestValues = {
   name: string;
   contact: string;
-  postcode?: string;
+  postcode?: string | undefined;
   service: string;
-  notes?: string;
+  notes?: string | undefined;
 };
 
 export type BookingResult = { error: string | null };
