@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Open
+- Owner cannot sign in to jcsjasminegoodall@gmail.com, so the Gmail authorise cannot finish. Fallbacks: in-app enquiries screen, a different inbox they can sign in to, or the account owner authorises it.
 - Link the Outlook mailbox connection (card next) so enquiries are emailed; then set BOOKING_TO_EMAIL to the business inbox.
 - Replace placeholder review quotes with the full text from the owner (three real quotes arrived truncated).
 - Confirm feature blurbs for Personalised plans / Cleaner, brighter home / Gentle, reliable cleaners (copy completed from truncated source).
