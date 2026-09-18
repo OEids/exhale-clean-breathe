@@ -262,10 +262,10 @@ function PoliciesPage() {
               <p className="mt-3 max-w-md font-display text-2xl font-bold tracking-tight text-ink">
                 Tell us what's changed and we'll work it out.
               </p>
-              <div className="mt-3 space-y-1 text-sm text-ink/70">
-                <p>hello@exhale.london</p>
-                <p>020 7946 0100</p>
-              </div>
+              <p className="mt-3 text-sm text-ink/70">
+                Send us the form on the booking page and we'll come straight back to you.
+              </p>
+
             </div>
             <Link
               to="/"
@@ -281,8 +281,9 @@ function PoliciesPage() {
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-panel-border pt-8">
           <BrandLockup size="footer" />
           <p className="text-xs text-ink/50">
-            Exhale Cleaning Service · London · fully insured
+            Exhale Cleaning Service · Bradford & all BD postcodes
           </p>
+
         </div>
       </footer>
     </div>

@@ -77,18 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Exhale Cleaning Service — London homes & offices" },
+      { title: "Exhale Cleaning Service — Bradford home cleaning" },
       {
         name: "description",
         content:
-          "Exhale Cleaning Service handles regular home cleans, deep cleans, move-out cleans and office cleans across London. Book once and breathe out.",
+          "Exhale is a small, trusted home cleaning service in Bradford and all BD postcode areas. Start with a free meet-and-greet and breathe out.",
       },
       { name: "author", content: "Exhale Cleaning Service" },
       { property: "og:title", content: "Exhale Cleaning Service" },
       {
         property: "og:description",
         content:
-          "Spotless London homes and offices without the mental load. Breathe out — we clean in.",
+          "Gentle care for every space. A free meet-and-greet, a plan built around your home, and a cleaner you can rely on.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Exhale Cleaning Service" },
@@ -97,8 +97,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "Spotless London homes and offices without the mental load. Breathe out — we clean in.",
+          "Bradford home cleaning without the mental load. Breathe out — we clean in.",
       },
+
     ],
     links: [
       {
