@@ -56,6 +56,13 @@ const ABOUT = [
   },
 ];
 
+const ACCREDITATIONS = [
+  "Trusted Traders with Age UK",
+  "Recommended by Bradford Council",
+  "Trusted Traders with Creative Support",
+];
+
+
 const STEPS = [
   {
     number: "1",
