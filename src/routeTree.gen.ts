@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PoliciesRouteImport } from './routes/policies'
+import { Route as ApiPublicEnquiryRouteImport } from './routes/api/public/enquiry'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const PoliciesRoute = PoliciesRouteImport.update({
   path: '/policies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicEnquiryRoute = ApiPublicEnquiryRouteImport.update({
+  id: '/api/public/enquiry',
+  path: '/api/public/enquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/policies': typeof PoliciesRoute
+  '/api/public/enquiry': typeof ApiPublicEnquiryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/policies': typeof PoliciesRoute
+  '/api/public/enquiry': typeof ApiPublicEnquiryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/policies': typeof PoliciesRoute
+  '/api/public/enquiry': typeof ApiPublicEnquiryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/policies'
+  fullPaths: '/' | '/policies' | '/api/public/enquiry'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/policies'
-  id: '__root__' | '/' | '/policies'
+  to: '/' | '/policies' | '/api/public/enquiry'
+  id: '__root__' | '/' | '/policies' | '/api/public/enquiry'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PoliciesRoute: typeof PoliciesRoute
+  ApiPublicEnquiryRoute: typeof ApiPublicEnquiryRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PoliciesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/enquiry': {
+      id: '/api/public/enquiry'
+      path: '/api/public/enquiry'
+      fullPath: '/api/public/enquiry'
+      preLoaderRoute: typeof ApiPublicEnquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PoliciesRoute: PoliciesRoute,
+  ApiPublicEnquiryRoute: ApiPublicEnquiryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
