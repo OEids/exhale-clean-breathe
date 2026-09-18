@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import cleanKitchen1 from "@/assets/clean-kitchen-1.jpg.asset.json";
-import heroImage from "@/assets/hero-natural.jpg";
+import cleanBedroom from "@/assets/clean-bedroom.jpg.asset.json";
+import cleanDusting from "@/assets/clean-dusting.jpg.asset.json";
+import cleanKitchen from "@/assets/clean-kitchen.jpg.asset.json";
 import { BookingForm } from "@/components/booking-form";
 import { BrandLockup } from "@/components/brand-lockup";
 import { Panel, PanelLabel } from "@/components/panel";
@@ -131,15 +132,20 @@ function Index() {
                 Weekly & fortnightly plans
               </span>
             </div>
-            <figure className="mt-9 h-56 overflow-hidden rounded-2xl sm:h-64">
-              <img
-                src={heroImage}
-                alt="A calm, uncluttered living room in morning light with linen curtains and an olive tree"
-                width={1024}
-                height={1280}
-                className="h-full w-full object-cover"
-              />
-            </figure>
+            <div className="mt-9 grid grid-cols-3 gap-3">
+              {HERO_PHOTOS.map((photo) => (
+                <figure key={photo.src} className="overflow-hidden rounded-2xl">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={320}
+                    height={230}
+                    className="aspect-[4/3] h-full w-full object-cover"
+                  />
+                </figure>
+              ))}
+            </div>
+            <p className="mt-3 text-xs text-ink/50">Photos from our recent cleans.</p>
           </section>
 
           {/* This week */}
