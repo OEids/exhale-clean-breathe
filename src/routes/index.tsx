@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import cleanKitchen1 from "@/assets/clean-kitchen-1.jpg.asset.json";
 import heroImage from "@/assets/hero-natural.jpg";
 import { BookingForm } from "@/components/booking-form";
 import { BrandLockup } from "@/components/brand-lockup";
