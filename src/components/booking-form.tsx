@@ -76,6 +76,14 @@ export function BookingForm() {
   return (
     <Panel grain className="lg:p-9">
       <form onSubmit={handleSubmit} noValidate={false}>
+        {/* Honeypot: people never see or fill this in, bots do. */}
+        <div aria-hidden="true" className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
+          <label>
+            Company
+            <input name="company" tabIndex={-1} autoComplete="off" defaultValue="" />
+          </label>
+        </div>
+
         <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-2">
           <label className={labelClass}>
             Your name
