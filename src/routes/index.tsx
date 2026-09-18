@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-natural.jpg";
 import { BookingForm } from "@/components/booking-form";
 import { BrandLockup } from "@/components/brand-lockup";
@@ -297,9 +297,15 @@ function Index() {
       <footer className="mx-auto mt-16 max-w-6xl px-6">
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-panel-border pt-8">
           <BrandLockup size="footer" />
-          <p className="text-xs text-ink/50">
-            Exhale Cleaning Service · London · fully insured
-          </p>
+          <div className="flex flex-wrap items-center gap-5 text-xs text-ink/50">
+            <Link
+              to="/policies"
+              className="underline-offset-4 transition-colors hover:text-brand hover:underline"
+            >
+              Appointments & cancellations
+            </Link>
+            <p>Exhale Cleaning Service · London · fully insured</p>
+          </div>
         </div>
       </footer>
     </div>

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { Link } from "@tanstack/react-router";
 import { Panel, PanelLabel } from "@/components/panel";
 import { submitBookingRequest } from "@/lib/bookings";
 
@@ -130,7 +131,14 @@ export function BookingForm() {
         </button>
 
         <p className="mt-4 text-xs text-ink/50">
-          No payment now. We confirm the price before anyone sets off.
+          No payment now. We confirm the price before anyone sets off.{" "}
+          <Link
+            to="/policies"
+            className="underline underline-offset-4 transition-colors hover:text-brand"
+          >
+            Appointments & cancellation policy
+          </Link>
+          .
         </p>
       </form>
     </Panel>
