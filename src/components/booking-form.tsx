@@ -2,8 +2,10 @@ import { useState, type FormEvent } from "react";
 import { Panel, PanelLabel } from "@/components/panel";
 import { submitBookingRequest } from "@/lib/bookings";
 
+const DEFAULT_SERVICE = "Regular home clean";
+
 const SERVICES = [
-  "Regular home clean",
+  DEFAULT_SERVICE,
   "Deep clean",
   "Move-out clean",
   "Office clean",
@@ -34,7 +36,7 @@ export function BookingForm() {
       name: read("name"),
       contact: read("contact"),
       postcode: read("postcode") || undefined,
-      service: read("service") || SERVICES[0],
+      service: read("service") || DEFAULT_SERVICE,
       notes: read("notes") || undefined,
     });
 
