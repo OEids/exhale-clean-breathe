@@ -59,6 +59,17 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Exhale brand tokens */
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-ink: var(--ink);
+  --color-mist: var(--mist);
+  --color-sage: var(--sage);
+  --color-panel: var(--panel);
+  --color-panel-border: var(--panel-border);
+  --font-display: "Sora", ui-sans-serif, sans-serif;
+  --font-body: "Inter", ui-sans-serif, sans-serif;
 }
 
 :root {
@@ -95,6 +106,25 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* Exhale: steel blue, ink, mist, sage */
+  --brand: oklch(0.564 0.066 239.5);
+  --brand-soft: oklch(0.564 0.066 239.5 / 10%);
+  --ink: oklch(0.308 0.03 243);
+  --mist: oklch(0.969 0.007 231);
+  --sage: oklch(0.75 0.046 171);
+
+  /* Frosted bento panel surface */
+  --panel: oklch(1 0 0 / 45%);
+  --panel-border: oklch(1 0 0 / 60%);
+  --shadow-panel: 0 22px 45px -22px oklch(0.42 0.06 239 / 26%);
+
+  /* Airy wash behind the whole page */
+  --page-bg:
+    radial-gradient(60% 55% at 15% 10%, oklch(0.564 0.066 239.5 / 22%), transparent 60%),
+    radial-gradient(50% 45% at 88% 15%, oklch(0.75 0.046 171 / 20%), transparent 55%),
+    radial-gradient(60% 50% at 50% 100%, oklch(0.564 0.066 239.5 / 16%), transparent 60%),
+    linear-gradient(180deg, oklch(0.975 0.005 235) 0%, oklch(0.93 0.012 235) 100%);
 }
 
 .dark {
@@ -130,6 +160,37 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+
+  --brand: oklch(0.74 0.07 239.5);
+  --brand-soft: oklch(0.74 0.07 239.5 / 14%);
+  --ink: oklch(0.94 0.012 235);
+  --mist: oklch(0.32 0.022 240);
+  --sage: oklch(0.72 0.055 171);
+
+  --panel: oklch(0.3 0.026 243 / 55%);
+  --panel-border: oklch(1 0 0 / 12%);
+  --shadow-panel: 0 22px 45px -22px oklch(0.05 0.02 240 / 60%);
+
+  --page-bg:
+    radial-gradient(60% 55% at 15% 10%, oklch(0.74 0.07 239.5 / 18%), transparent 60%),
+    radial-gradient(50% 45% at 88% 15%, oklch(0.72 0.055 171 / 12%), transparent 55%),
+    radial-gradient(60% 50% at 50% 100%, oklch(0.74 0.07 239.5 / 14%), transparent 60%),
+    linear-gradient(180deg, oklch(0.17 0.02 250) 0%, oklch(0.13 0.02 250) 100%);
+}
+
+@utility glass {
+  background-color: var(--panel);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(12px);
+}
+
+@utility eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--brand);
 }
 
 @layer base {
@@ -139,6 +200,10 @@
 
   body {
     background-color: var(--color-background);
+    background-image: var(--page-bg);
+    background-attachment: fixed;
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
   }
 }

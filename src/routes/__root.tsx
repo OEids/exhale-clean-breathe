@@ -77,14 +77,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Exhale Cleaning Service — London homes & offices" },
+      {
+        name: "description",
+        content:
+          "Exhale Cleaning Service handles regular home cleans, deep cleans, move-out cleans and office cleans across London. Book once and breathe out.",
+      },
+      { name: "author", content: "Exhale Cleaning Service" },
+      { property: "og:title", content: "Exhale Cleaning Service" },
+      {
+        property: "og:description",
+        content:
+          "Spotless London homes and offices without the mental load. Breathe out — we clean in.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Exhale Cleaning Service" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Exhale Cleaning Service" },
+      {
+        name: "twitter:description",
+        content:
+          "Spotless London homes and offices without the mental load. Breathe out — we clean in.",
+      },
     ],
     links: [
       {
@@ -92,6 +106,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
