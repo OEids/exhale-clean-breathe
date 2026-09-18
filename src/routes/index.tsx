@@ -180,12 +180,13 @@ function Index() {
               <PanelLabel>A cleaner way of living</PanelLabel>
               <span className="text-xs text-ink/50">Gentle care for every space</span>
             </div>
-            <ul className="mt-6 grid grid-cols-1 gap-x-10 md:grid-cols-2">
+            <ul className="mt-6">
               {ABOUT.map((item, index) => (
                 <li
                   key={item.title}
-                  className="flex items-baseline gap-5 border-t border-panel-border py-5 md:[&:nth-child(-n+2)]:border-t-0"
+                  className="flex items-baseline gap-5 border-t border-panel-border py-5 first:border-t-0"
                 >
+
                   <span className="font-display text-sm font-semibold text-brand">
                     {`0${index + 1}`}
                   </span>
