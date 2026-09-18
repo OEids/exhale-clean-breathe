@@ -60,15 +60,15 @@ const WEEK = [
 const ABOUT = [
   {
     title: "Personalised plans",
-    copy: "We understand no two homes are the same, so we build every plan around yours.",
+    copy: "We understand no two homes are the same, so we create a personalised cleaning plan for each one of our clients.",
   },
   {
     title: "Cleaner, brighter home",
-    copy: "We help you keep your home genuinely clean week after week, so it never slips.",
+    copy: "We help our clients maintain a clean home, giving them and their families peace of mind.",
   },
   {
-    title: "Gentle, reliable cleaners",
-    copy: "We take extra care, treating your home the way we would treat our own.",
+    title: "Gentle and reliable cleaners",
+    copy: "We take extra care, treating our clients' homes with the same care and respect we would our own.",
   },
 ];
 
