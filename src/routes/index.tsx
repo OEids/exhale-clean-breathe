@@ -200,6 +200,35 @@ function Index() {
             </ul>
           </Panel>
 
+          {/* From our cleans */}
+          <Panel className="col-span-12" id="cleans">
+            <div className="flex flex-wrap items-end justify-between gap-2">
+              <PanelLabel>From our cleans</PanelLabel>
+              <span className="text-xs text-ink/50">Real homes, looked after by the team</span>
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <figure className="overflow-hidden rounded-2xl">
+                <img
+                  src={cleanKitchen1.url}
+                  alt="A freshly cleaned kitchen with a marble-topped island, pendant lights and garden view"
+                  width={1290}
+                  height={386}
+                  className="aspect-[16/9] h-full w-full object-cover"
+                />
+              </figure>
+              <div className="hidden items-center justify-center rounded-2xl border border-dashed border-panel-border bg-mist/30 p-6 text-center text-xs leading-relaxed text-ink/50 sm:flex">
+                More photos from recent cleans
+                <br />
+                coming soon
+              </div>
+              <div className="hidden items-center justify-center rounded-2xl border border-dashed border-panel-border bg-mist/30 p-6 text-center text-xs leading-relaxed text-ink/50 lg:flex">
+                Your home could be next —
+                <br />
+                book a free meet-and-greet
+              </div>
+            </div>
+          </Panel>
+
           {/* How it works */}
           <Panel className="col-span-12 lg:col-span-5" id="how">
             <PanelLabel>How it works</PanelLabel>
