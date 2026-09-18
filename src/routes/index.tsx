@@ -56,6 +56,13 @@ const ABOUT = [
   },
 ];
 
+const ACCREDITATIONS = [
+  "Trusted Traders with Age UK",
+  "Recommended by Bradford Council",
+  "Trusted Traders with Creative Support",
+];
+
+
 const STEPS = [
   {
     number: "1",
@@ -165,8 +172,33 @@ function Index() {
             </p>
           </Panel>
 
+          {/* About us */}
+          <Panel grain className="col-span-12" id="about">
+            <PanelLabel>About us</PanelLabel>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/80">
+              Exhale is a small, trusted home cleaning service based in Bradford. We specialise in
+              compassionate, reliable cleaning for older adults, busy families and anyone who needs
+              a little extra support at home.
+            </p>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {ACCREDITATIONS.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-full border border-panel-border px-4 py-2 text-sm text-ink/75"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink/60">
+              Every visit is carried out with care, respect and discretion, so you or your loved
+              ones can feel safe, comfortable and truly looked after.
+            </p>
+          </Panel>
+
           {/* Where we work */}
           <Panel grain className="col-span-12 lg:col-span-5">
+
             <PanelLabel>Where we work</PanelLabel>
             <p className="mt-3 font-display text-3xl font-extrabold text-ink">Bradford</p>
             <p className="mt-1 text-sm text-ink/70">
